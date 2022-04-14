@@ -37,7 +37,6 @@ die();
     
     $_POST['id_photo1_produit'] = $photoArticle1;
     
-    var_dump($photoArticle1);
     
     if(move_uploaded_file($_FILES['id_photo1_produit']['tmp_name'], $photoArticle1)){
         echo "<p class='container alert-alert-success'>Le fichier est validé et téléchargé avec success</p>";
@@ -50,24 +49,14 @@ die();
 
 }
 
-    $sql = "INSERT INTO `produits`(`id_produit`, `id_nom_produit`, `id_photo1_produit`, `id_taille_produit`, `id_prix_produit`, `id_date_produit`, `id_descritption_produit`, `categorie_id`, `vendeur_id`) VALUES (?,?,?,?,?,?,?,?,?)";
+    $sql = "UPDATE `produits` SET `id_nom_produit`= ?,`id_photo1_produit`= ?,`id_taille_produit`= ?,`id_prix_produit`= ?,`id_date_produit`= ?,`id_descritption_produit`= ?,`categorie_id`= ?,`vendeur_id`= ? WHERE id_produit = ?";
 
-    $rajout = $vinted->prepare($sql);
+    $modif = $vinted->prepare($sql);
     
-    
-    $rajout->bindParam(1, $_POST['id_produit']);
-    $rajout->bindParam(2, $_POST['id_nom_produit']);
-    $rajout->bindParam(3, $_POST['id_photo1_produit']);
-    $rajout->bindParam(4, $_POST['id_taille_produit']);
-    $rajout->bindParam(5, $_POST['id_prix_produit']);
-    $rajout->bindParam(6, $_POST['id_date_produit']);
-    $rajout->bindParam(7, $_POST['id_description_produit']);
-    $rajout->bindParam(8, $_POST['categories']);
-    $rajout->bindParam(9, $_POST['vendeurs']);
  
     
-    $rajout->execute(array(
-        $_POST['id_produit'],
+    $modif->execute(array(
+        
         $_POST['id_nom_produit'],
         $_POST['id_photo1_produit'],
         $_POST['id_taille_produit'],
@@ -76,10 +65,11 @@ die();
         $_POST['id_description_produit'],
         $_POST['categories'],
         $_POST['vendeurs'],
+        $_GET['id_produit']
       
     
     ));
-    if($rajout){
+    if($modif){
         echo "<p class='container alert alert-success'>Votre produit a été ajouté avec succès !</p>";
         echo "<a href='index.php' class='container btn btn-success'>Voir mon produit</a>";
     }else{
@@ -94,4 +84,3 @@ die();
 
 </body>
 </html>
-

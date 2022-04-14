@@ -44,9 +44,7 @@ $detail = $request->fetch(PDO::FETCH_ASSOC);
   <div class="row">
   <div class="col-2" style="width: 150px;">
   <img src="<?= $detail['id_photo1_produit']?>" class="d-block w-100 p-2 demo" alt="<?= $detail['id_nom_produit']?>">
-  <img src="<?= $detail['id_photo2_produit']?>" class="d-block w-100 p-2 demo" alt="<?= $detail['id_nom_produit']?>">
-  <img src="<?= $detail['id_photo3_produit']?>" class="d-block w-100 p-2 demo" alt="<?= $detail['id_nom_produit']?>">
-  <img src="<?= $detail['id_photo4_produit']?>" class="d-block w-100 p-2 demo" alt="<?= $detail['id_nom_produit']?>">
+
   
   </div>
   
@@ -56,15 +54,7 @@ $detail = $request->fetch(PDO::FETCH_ASSOC);
     <div class="carousel-item active">
     <img src="<?= $detail['id_photo1_produit']?>" class="d-block w-100 p-2 " alt="<?= $detail['id_nom_produit']?>">
     </div>
-    <div class="carousel-item">
-      <img src="<?= $detail['id_photo2_produit']?>" class="d-block w-100 p-2" alt="<?= $detail['id_nom_produit']?>">
-    </div>
-    <div class="carousel-item">
-      <img src="<?= $detail['id_photo3_produit']?>" class="d-block w-100 p-2" alt="<?= $detail['id_nom_produit']?>">
-    </div>
-    <div class="carousel-item">
-      <img src="<?= $detail['id_photo4_produit']?>" class="d-block w-100 p-2" alt="<?= $detail['id_nom_produit']?>">
-    </div>
+
   </div>
 
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -88,6 +78,7 @@ $detail = $request->fetch(PDO::FETCH_ASSOC);
         <p class="card-text"><small class="text-muted">Date de dépot :<?=$detail['id_date_produit'];?></small></p>
         <a href="../crud_php_jointure/index.php?id_produit=<?=$detail['id_produit']?>" class="mt-2 btn btn-success btn-lg">retour au dressing</a>
         <a href="../crud_php_jointure/ajout_produit?id_produit=<?=$detail['id_produit']?>" class="mt-2 btn btn-warning btn-lg">Création d'un article</a>
+        <a href="../crud_php_jointure/editer_produit?id_produit=<?=$detail['id_produit']?>" class="mt-2 btn-lg btn btn-danger">Editer l'article</a>
         <button type="button" class="btn btn-primary btn-lg">Ajouter au panier</button>
       </div>
     </div>

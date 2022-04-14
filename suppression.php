@@ -44,9 +44,7 @@ $detail = $request->fetch(PDO::FETCH_ASSOC);
   <div class="row">
   <div class="col-2" style="width: 150px;">
   <img src="<?= $detail['id_photo1_produit']?>" class="d-block w-100 p-2 demo" alt="<?= $detail['id_nom_produit']?>">
-  <img src="<?= $detail['id_photo2_produit']?>" class="d-block w-100 p-2 demo" alt="<?= $detail['id_nom_produit']?>">
-  <img src="<?= $detail['id_photo3_produit']?>" class="d-block w-100 p-2 demo" alt="<?= $detail['id_nom_produit']?>">
-  <img src="<?= $detail['id_photo4_produit']?>" class="d-block w-100 p-2 demo" alt="<?= $detail['id_nom_produit']?>">
+
   
   </div>
   
